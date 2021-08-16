@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Random User</title>
+  <!-- <base href="./"> -->
+
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+  <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+<link rel="stylesheet" href="mystyles.css"></head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $.ajax({
+  url: 'https://randomuser.me/api/',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data.results[0].name.first);
+    $('.details').append(data.results);
+    document.getElementById('image').src = data.results[0].picture.large;
+   document.getElementById('user_value').innerHTML = data.results[0].name.last;
+   document.getElementsByTagName('values_list').innerHTML = data.results[0];
+  }
+});
+});
+</script>
+</head>
+
+<body>
+    <div class="l-container-fluid">
+            <div class="c-card">
+                      <div class="details">
+                        <div><img id="image" src="" class="u-image--rounded"><br/>  
+                          </div>
+                          <p id="user_title">Hi, My name is</p>
+                          <p id="user_value">...</p>
+                      </div>
+                      <ul class="values_list horizontal_center" id="values_list">
+                          <li data-title="Hi, My name is" data-value="{{data.results[0].name.last}}" + " " + "{{data.results[0].name.first}}" data-label="name" class="active"></li>
+                          <li data-title="My email address is" data-value="{{values_list.email}}" data-label="email" data-caps="false"></li>
+                          <li data-title="My birthday is" data-value="{{data.results[0].email}}" data-label="birthday"></li>
+                          <li data-title="My address is" data-value="{{data.results[0].email}}" data-label="location"></li>
+                          <li data-title="My phone number is" data-value="{{data.results[0].email}}" data-label="phone"></li>
+                          <li data-title="My password is" data-value="{{data.results[0].email}}" data-label="pass" data-caps="false"></li>
+                      </ul>
+                  </div>
+              </div>
+            </div>
+    </div>
+</body>
+<script>
+  $( document ).ready(function() {
+    console.log( "ready!" );
+});
+</script>
