@@ -1,7 +1,7 @@
-const refresh = document.querySelector(".refresh");
-refresh.addEventListener("click", function () {
-    location.reload();
-})
+// const refresh = document.querySelector(".refresh");
+// refresh.addEventListener("click", function () {
+//     location.reload();
+// })
 
 
 const title_details_ = document.querySelector(".title_details");
@@ -15,12 +15,16 @@ fetch('https://randomuser.me/api/')
         let userData = data.results[0];
         console.log(userData);
         let imgSrc = `<img src="${userData.picture.large}">`;
+        let location = `${userData.location.street.number} ${userData.location.street.name}`;
         let name_ = `${userData.name.first} ${userData.name.last}`;
+        var date = new Date(userData.dob.date);
+        var birthDate = date.getMonth() + 1 + "/" + (date.getDay() + 1) + "/19" + date.getYear();
+
         let content_ = `
-        <div class="icon user_ active" data-title="Hi, My name is" data-value="${userData.name.first} ${userData.name.last}"></div>
+        <div class="icon user_ active" data-title="Hi, My name is" data-value="${name_}"></div>
         <div class="icon email_" data-title="My email address is" data-value="${userData.email}"></div>
-        <div class="icon birthday_" data-title="My age is" data-value="${userData.dob.age}yrs"></div>
-        <div class="icon location_" data-title="My addres is" data-value="${userData.location.country}"></div>
+        <div class="icon birthday_" data-title="My birthday is" data-value="${birthDate}"></div>
+        <div class="icon location_" data-title="My addres is" data-value="${location}"></div>
         <div class="icon phone_" data-title="My phone number is " data-value="${userData.cell}"></div>
         <div class="icon password_" data-title="My password is" data-value="${userData.login.password}"></div>        
         `
