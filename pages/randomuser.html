@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title>Random User</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- <base href="./"> -->
 
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
 <link rel="stylesheet" href="mystyles.css"></head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+<!-- <script>
 $(document).ready(function(){
   $.ajax({
   url: 'https://randomuser.me/api/',
@@ -21,36 +22,44 @@ $(document).ready(function(){
     document.getElementById('image').src = data.results[0].picture.large;
    document.getElementById('user_value').innerHTML = data.results[0].name.last;
    document.getElementsByTagName('values_list').innerHTML = data.results[0];
+   var icons = document.getElementsByTagName('i');
+for (var i = 0; i < icons.length; i++) {
+  icons[i].addEventListener('click',function() {
+    this.classList.toggle('active');
+    alert("Clicked!");
+    document.getElementById('user_value').innerHTML = data.results[0].name.last;
+  });
+}
   }
 });
+
 });
-</script>
+</script> -->
 </head>
 
 <body>
-    <div class="l-container-fluid">
-            <div class="c-card">
-                      <div class="details">
-                        <div><img id="image" src="" class="u-image--rounded"><br/>  
-                          </div>
-                          <p id="user_title">Hi, My name is</p>
-                          <p id="user_value">...</p>
-                      </div>
-                      <ul class="values_list horizontal_center" id="values_list">
-                          <li data-title="Hi, My name is" data-value="{{data.results[0].name.last}}" + " " + "{{data.results[0].name.first}}" data-label="name" class="active"></li>
-                          <li data-title="My email address is" data-value="{{values_list.email}}" data-label="email" data-caps="false"></li>
-                          <li data-title="My birthday is" data-value="{{data.results[0].email}}" data-label="birthday"></li>
-                          <li data-title="My address is" data-value="{{data.results[0].email}}" data-label="location"></li>
-                          <li data-title="My phone number is" data-value="{{data.results[0].email}}" data-label="phone"></li>
-                          <li data-title="My password is" data-value="{{data.results[0].email}}" data-label="pass" data-caps="false"></li>
-                      </ul>
-                  </div>
-              </div>
+    <div class="container">
+        <div class="wrapper">
+            <div class="refresh">Refresh me</div>
+        </div>
+        <div class="profile_card">
+            <div class="profile_header"></div>
+            <div class="user_img">
+                <img src="images/4.jpg">
             </div>
+            <div class="title_info">Hi, My name is</div>
+            <div class="title_details">Maithili Jha</div>
+            <div class="info_icons">
+                <div class="icon user_ active" data-title="Hi, My name is" data-value="Maithili Jha"></div>
+                <div class="icon email_" data-title="My email address is" data-value="abcd@email.com"></div>
+                <div class="icon birthday_" data-title="My age is" data-value="7yrs"></div>
+                <div class="icon location_" data-title="My addres is" data-value="Mumbai"><i class="fad fa-map-marked-alt"></i></div>
+                <div class="icon phone_" data-title="My phone number is " data-value="1234567890"></div>
+                <div class="icon password_" data-title="My password is" data-value="123456"></div>
+            </div>
+        </div>
     </div>
+    <script src="js/randomUser.js"></script>
 </body>
-<script>
-  $( document ).ready(function() {
-    console.log( "ready!" );
-});
-</script>
+
+</html>
