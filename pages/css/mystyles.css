@@ -3205,7 +3205,7 @@ h6 {
     color: #101010;
 }
 .active {
-    background: rgba(67, 149, 57, 0.5);
+    color: rgba(67, 149, 57, 0.5);
 }
 .highlight {
     padding: 1rem;
@@ -3273,7 +3273,7 @@ body {
   cursor: pointer;
 }
 
-.container .profile_card {
+.container .c-card {
   display: block;
   width: 60%;
   height: 70vh;
@@ -3285,13 +3285,13 @@ body {
   position: relative;
 }
 
-.container .profile_card .profile_header {
+.container .c-card .card__header {
   background-color: #eee;
   border-bottom: 1px solid #bdbdbd;
   padding: 50px;
 }
 
-.container .profile_card .user_img {
+.container .c-card .user_img {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3311,7 +3311,7 @@ body {
   border: 1px solid #57bbfd;
 }
 
-.container .profile_card .user_img img {
+.container .c-card .user_img img {
   width: 140px;
   height: 140px;
   -o-object-fit: cover;
@@ -3319,13 +3319,13 @@ body {
   border-radius: 50%;
 }
 
-.container .title_info {
+.container .user_info {
   margin-top: 30px;
   text-align: center;
   font-size: 16px;
 }
 
-.container .title_details {
+.container .user_details {
   margin-top: 20px;
   text-align: center;
   font-size: 45px;
@@ -3349,7 +3349,7 @@ body {
   display: block;
   width: 40px;
   height: 48px;
-  background-image: url(../pages/images/card_icons.png);
+  background-image: url(../images/card_icons.png);
   background-size: 378px;
   cursor: pointer;
 }
